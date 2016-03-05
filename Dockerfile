@@ -22,3 +22,7 @@ RUN cmake . -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_SSL=system -DWITH_ZLIB=bund
     make -j8 && \
     make install && \
     make clean
+
+RUN useradd mysql && \
+    mkdir -p /etc/mysql/conf.d /var/run/mysql /var/lib/mysql && \
+    chown mysql /var/run/mysql /var/lib/mysql
